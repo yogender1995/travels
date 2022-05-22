@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './css/Header.css';
 
 class Header extends Component {
     constructor(props) {
@@ -26,8 +27,8 @@ class Header extends Component {
                         {/* End Logo Header Navigation */}
                         {/* Collect the nav links, forms, and other content for toggling */}
                         <div className="collapse navbar-collapse" id="navbar-menu">
-                            <ul className="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
-                                <li className="dropdown">
+                            <ul className="nav navbar-nav navbar-left">
+                                <li className="dropdown nav-bar">
                                     <Link to='/'>Home</Link>
                                 </li>
                                 <li>
