@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import AdminSidebar from '../dashboard/Sidebar';
 
 class Main extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class Main extends Component {
     render() {
         return (
             <div>
+              
                 <div>
                     {/* ======================= Start Banner ===================== */}
                     <div className="main-banner" style={{ backgroundImage: 'url(assets/img/banner-9.jpg)' }}>

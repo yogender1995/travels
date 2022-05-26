@@ -10,7 +10,7 @@ class Header extends Component {
         return (
             <div>
                 {/* ======================= Start Navigation ===================== */}
-                <nav className="navbar navbar-default navbar-mobile navbar-fixed light bootsnav">
+                <nav className="navbar navbar-default navbar-mobile navbar-fixed  bootsnav">
                     <div className="container">
                         {/* Start Logo Header Navigation */}
                         <div className="navbar-header">

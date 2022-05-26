@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AdminRoutes from './componets/dashboard/AdminRoutes';
 import SiteRoutes from './componets/main-site/SiteRoutes';
+import { Outlet } from "react-router";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        {this.state.adminLogin ? <AdminRoutes /> : <SiteRoutes />}
+        { <SiteRoutes />}
       </div >
     );
   }
