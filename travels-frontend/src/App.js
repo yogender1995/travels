@@ -1,25 +1,20 @@
 import React, { Component } from "react";
 import AdminRoutes from './componets/dashboard/AdminRoutes';
 import SiteRoutes from './componets/main-site/SiteRoutes';
-import { Outlet } from "react-router";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+import AuthUser from './componets/AuthUser';
 
-    this.state = {
-      adminLogin: false
-    }
+const App = () => {
+
+  const {getToken} = AuthUser();
+
+  if(!getToken()){
+
+    return <SiteRoutes />
   }
-
-  render() {
-    return(
-      <div>
-        { <SiteRoutes />}
-      </div >
-    );
-  }
+  return (
+      <AdminRoutes />
+  );
 }
-
 
 export default App;

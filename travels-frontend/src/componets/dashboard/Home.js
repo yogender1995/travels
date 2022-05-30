@@ -2,16 +2,16 @@ import React, { Component, PropTypes } from 'react';
 
 import { Outlet} from 'react-router-dom';
 import AdminSidebar from '../dashboard/Sidebar';
+import AdminHeader from '../dashboard/Header';
 
 class Home extends Component {
     constructor(props) {
-        super(props);
-
+		super(props);
     }
 
     render() {
         return (
-            <div>
+            <div><AdminHeader />
 				<section className="dashboard gray-bg padd-0 mrg-top-50">
 					<div className="container-fluid">
 						<div className="row">

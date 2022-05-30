@@ -164,7 +164,7 @@ const Hotel = () => {
       <div className="hotel-box-image">
         <figure>
           <a href="hotel-detail.html">
-            <img src="public/assets/img/hotel/hotel-7.jpg" className="img-responsive listing-box-img"  />
+            <img src="assets/img/hotel/hotel-7.jpg" className="img-responsive listing-box-img"  />
             <div className="list-overlay" />
             <div className="read_more"><span>Read more</span></div>
           </a>
