@@ -1,15 +1,36 @@
 import React, { Component } from 'react';
+import { Link, Navigate } from  'react-router-dom';
+import { useEffect, useState } from 'react';
 
-class Sidebar extends Component {
-    constructor(props) {
-        super(props);
 
+import AuthUser from '../AuthUser';
+
+const Sidebar = () => {
+    const {http} = AuthUser();
+    const [userdetail,setUserdetail] = useState('');
+
+    const {token,logout} = AuthUser();
+
+    const fetchUserDetail = () =>{
+        http.post('/me').then((res)=>{
+            setUserdetail(res.data);
+        });
     }
 
-    render() {
-        return (
-            <div>
-                <div className="col-lg-2 col-md-2 col-sm-3 dashboard-bg">
+    useEffect(()=>{
+        fetchUserDetail();
+     
+    },[]);
+
+    const logoutUser = () => {
+        if(token != undefined){
+            logout();
+        }
+    }
+
+    return (
+        <div>
+            <div className="col-lg-2 col-md-2 col-sm-3 dashboard-bg">
                     {/* /. NAV TOP  */}
                     <nav className="navbar navbar-side">
                         {/* Start Logo Header Navigation */}
@@ -24,11 +45,12 @@ class Sidebar extends Component {
                                     <img src="assets/img/user-3.jpg" className="img-responsive img-circle" alt="" />
                                     <span className="dashboard-user-status bg-success" />
                                 </div>
-                                <h4>Duke Daniel</h4>
+                                <h4>{userdetail.name}</h4>
+                                <span role="button" className="nav-link" onClick={logoutUser}>Logout</span>
                             </div>
                             <ul className="nav" id="main-menu">
                                 <li className="active">
-                                    <a href="dashboard.html"><i className="fa fa-dashboard" aria-hidden="true" />Dashboard</a>
+                                    <Link to="dashboard"><i className="fa fa-dashboard" aria-hidden="true" />Home</Link>
                                 </li>
                                 <li>
                                     <a href="messages.html"><i className="ti-email" aria-hidden="true" />Messages</a>
@@ -37,7 +59,7 @@ class Sidebar extends Component {
                                     <a href="#"><i className="fa fa-clone" aria-hidden="true" />Manage Listing <span className="fa arrow" /></a>
                                     <ul className="nav nav-second-level">
                                         <li>
-                                            <a href="manage-hotels.html"><i className="fa fa-circle-o-notch" aria-hidden="true" />Manage Hotels</a>
+                                            <Link to='hotel'><i className="fa fa-circle-o-notch" aria-hidden="true" />Manage Hotels</Link>
                                         </li>
                                         <li>
                                             <a href="manage-tours.html"><i className="fa fa-circle-o-notch" aria-hidden="true" />Manage Tours</a>
@@ -106,11 +128,9 @@ class Sidebar extends Component {
                     </nav>
                     {/* /. NAV SIDE  */}
                 </div>
-
-            </div>
-        );
-    }
+            
+        </div>
+    );
 }
-
 
 export default Sidebar;

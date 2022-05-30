@@ -1,29 +1,32 @@
-import React from "react";
 import AdminHeader from "./Header";
 import AdminFooter from './Footer';
 import AdminSidebar from './Sidebar';
-import AdminHome from './Home';
-import { Route,Routes } from "react-router";
+import AdminHome from '../dashboard/Home';
+import { Route,Routes,Link} from "react-router";
+import DynamicSection from '../dashboard/DynamicSection';
+import Dashboard from '../dashboard/Dashboard';
+
+import React, { Component } from 'react';
+import Hotel from "../dashboard/Hotel";
+import Login from '../dashboard/Login';
+import Signup from "../dashboard/Signup";
 
 
 function AdminRoutes() {
     return (
-        <div>
+        <>
             <Routes>
-            <Route path="/admin" element={<AdminHome />}>
+                <Route path="admin/login" element={<Login />}/>
+                <Route path="admin/register" element={<Signup/>}/>
+                <Route path="admin/logout"/>
+                <Route path="/admin" element={<AdminHome/>}>
+                    <Route path="dashboard" element={<Dashboard/>}/>
+                    <Route path="hotel" element={<Hotel />}/>
+
                 </Route>
+                
             </Routes>
-            <AdminHeader />
-            <section className="dashboard gray-bg padd-0 mrg-top-50">
-                <div className="container-fluid">
-                    <div className="row">
-                        <AdminSidebar />
-                        <AdminHome />
-                    </div>
-                </div>
-            </section>
-            <AdminFooter />
-        </div>
+        </>
     );
 }
 
