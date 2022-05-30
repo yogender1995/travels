@@ -20,6 +20,7 @@ function AdminRoutes() {
                 <Route path="admin/register" element={<Signup/>}/>
                 <Route path="admin/logout"/>
                 <Route path="/admin" element={<AdminHome/>}>
+                    <Route path="/admin " element={<Dashboard/>}/>
                     <Route path="dashboard" element={<Dashboard/>}/>
                     <Route path="hotel" element={<Hotel />}/>
 

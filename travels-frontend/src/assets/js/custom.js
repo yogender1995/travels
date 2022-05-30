@@ -141,7 +141,7 @@
 		step:1,
 		value:[10, 500],
 		onchange:function(low, high){
-			console.log(low, high);
+			// console.log(low, high);
 		}
 	});
 	

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import { Outlet} from 'react-router-dom';
 import AdminSidebar from '../dashboard/Sidebar';
@@ -18,7 +18,7 @@ class Home extends Component {
 							<div className="col-lg-2 col-md-2 col-sm-3 dashboard-bg">
 								<AdminSidebar />
 							</div>
-							<div className="col-lg-10 col-md-10 col-sm-9 col-lg-push-2 col-md-push-2 col-sm-push-3">
+							<div className="col-lg-10 col-md-10 col-sm-9 col-lg-push-2 col-md-push-2 col-sm-push-3" style={{"marginTop":"30px"}}>
 								<Outlet />
 							</div>
 
